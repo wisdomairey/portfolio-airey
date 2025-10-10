@@ -18,14 +18,15 @@ Since you're using `wisdomairey.me` (apex domain), you need to add **A records**
 1. Click **Add New Record**
 2. Add these **4 A records** one by one:
 
-| Type | Host | Value | TTL |
-|------|------|-------|-----|
-| A Record | @ | 185.199.108.153 | Automatic |
-| A Record | @ | 185.199.109.153 | Automatic |
-| A Record | @ | 185.199.110.153 | Automatic |
-| A Record | @ | 185.199.111.153 | Automatic |
+| Type     | Host | Value           | TTL       |
+| -------- | ---- | --------------- | --------- |
+| A Record | @    | 185.199.108.153 | Automatic |
+| A Record | @    | 185.199.109.153 | Automatic |
+| A Record | @    | 185.199.110.153 | Automatic |
+| A Record | @    | 185.199.111.153 | Automatic |
 
 **Detailed Instructions for Each Record:**
+
 - **Type**: Select "A Record" from dropdown
 - **Host**: Enter `@` (this represents your root domain)
 - **Value**: Enter the IP address
@@ -35,11 +36,12 @@ Since you're using `wisdomairey.me` (apex domain), you need to add **A records**
 
 This ensures `www.wisdomairey.me` also works:
 
-| Type | Host | Value | TTL |
-|------|------|-------|-----|
-| CNAME Record | www | wisdomairey.github.io. | Automatic |
+| Type         | Host | Value                  | TTL       |
+| ------------ | ---- | ---------------------- | --------- |
+| CNAME Record | www  | wisdomairey.github.io. | Automatic |
 
 **Instructions:**
+
 - **Type**: Select "CNAME Record"
 - **Host**: Enter `www`
 - **Value**: Enter `wisdomairey.github.io.` (note the dot at the end - Namecheap may add it automatically)
@@ -50,11 +52,13 @@ This ensures `www.wisdomairey.me` also works:
 **Check for and remove any existing records that might conflict:**
 
 Common conflicting records to remove:
-- ❌ Any existing A records pointing to @ 
+
+- ❌ Any existing A records pointing to @
 - ❌ URL Redirect Records pointing to @
 - ❌ Namecheap Parking Page records
 
 **How to remove:**
+
 1. Look for the record in your DNS settings
 2. Click the **trash can icon** on the right
 3. Confirm deletion
@@ -91,16 +95,19 @@ npm run deploy
 ### Step 7: Wait for DNS Propagation
 
 DNS changes typically take:
+
 - **Namecheap**: 5-30 minutes (usually very fast)
 - **Global propagation**: Up to 24-48 hours
 
 **Check propagation status:**
+
 ```bash
 # Check if DNS has propagated
 nslookup wisdomairey.me
 ```
 
 Or use online tools:
+
 - https://dnschecker.org/#A/wisdomairey.me
 - https://www.whatsmydns.net/#A/wisdomairey.me
 
@@ -127,6 +134,7 @@ Your Advanced DNS page should look like this:
 ### Issue 1: "DNS Check Failed" on GitHub
 
 **Solution:**
+
 - Wait longer (DNS can take time)
 - Verify all 4 A records are correct
 - Check for typos in IP addresses
@@ -135,6 +143,7 @@ Your Advanced DNS page should look like this:
 ### Issue 2: Site Shows Namecheap Parking Page
 
 **Solution:**
+
 - Remove the Namecheap parking page redirect
 - In Advanced DNS, look for URL Redirect Records and delete them
 - Wait 5-10 minutes for changes to propagate
@@ -142,20 +151,23 @@ Your Advanced DNS page should look like this:
 ### Issue 3: WWW Not Working
 
 **Solution:**
+
 - Add the CNAME record for `www` pointing to `wisdomairey.github.io`
 - Make sure there's no conflicting A record for `www`
 
 ### Issue 4: Changes Not Taking Effect
 
 **Solution:**
+
 - Clear browser cache (Ctrl + Shift + Delete)
 - Try in incognito/private mode
 - Wait longer (up to 30 minutes for Namecheap)
 - Flush DNS cache:
+
   ```bash
   # Windows
   ipconfig /flushdns
-  
+
   # Mac/Linux
   sudo dscacheutil -flushcache
   ```
@@ -163,6 +175,7 @@ Your Advanced DNS page should look like this:
 ### Issue 5: SSL Certificate Error
 
 **Solution:**
+
 - Don't enable "Enforce HTTPS" until DNS fully propagates
 - Wait 10-30 minutes after DNS verification
 - GitHub needs time to issue SSL certificate
@@ -185,18 +198,19 @@ Before considering setup complete:
 
 ## Expected Timeline
 
-| Step | Time |
-|------|------|
-| Add DNS records in Namecheap | 2 minutes |
-| DNS propagation starts | Immediate |
-| DNS fully propagated | 5-30 minutes |
-| GitHub DNS verification | 5-10 minutes after propagation |
-| HTTPS certificate issued | 10-30 minutes after verification |
-| **Total time** | **20-70 minutes (typically ~30 min)** |
+| Step                         | Time                                  |
+| ---------------------------- | ------------------------------------- |
+| Add DNS records in Namecheap | 2 minutes                             |
+| DNS propagation starts       | Immediate                             |
+| DNS fully propagated         | 5-30 minutes                          |
+| GitHub DNS verification      | 5-10 minutes after propagation        |
+| HTTPS certificate issued     | 10-30 minutes after verification      |
+| **Total time**               | **20-70 minutes (typically ~30 min)** |
 
 ## Testing Your Setup
 
 ### Test 1: Check DNS Records
+
 ```bash
 nslookup wisdomairey.me
 ```
@@ -204,6 +218,7 @@ nslookup wisdomairey.me
 Expected output should show GitHub's IP addresses.
 
 ### Test 2: Check WWW Redirect
+
 ```bash
 nslookup www.wisdomairey.me
 ```
@@ -211,6 +226,7 @@ nslookup www.wisdomairey.me
 Should show CNAME pointing to wisdomairey.github.io
 
 ### Test 3: Access Your Site
+
 - Visit: http://wisdomairey.me (should work after DNS)
 - Visit: https://wisdomairey.me (should work after HTTPS enabled)
 - Visit: https://www.wisdomairey.me (should redirect to wisdomairey.me)

@@ -65,6 +65,7 @@ Value: wisdomairey.github.io
 ### Step 3: Configure GitHub Pages
 
 1. Push your changes with the CNAME file:
+
    ```bash
    git add public/CNAME next.config.js
    git commit -m "Add custom domain configuration"
@@ -72,6 +73,7 @@ Value: wisdomairey.github.io
    ```
 
 2. Deploy your site:
+
    ```bash
    npm run deploy
    ```
@@ -95,6 +97,7 @@ nslookup portfolio.yourdomain.com
 ```
 
 Or use online tools like:
+
 - https://dnschecker.org/
 - https://www.whatsmydns.net/
 
@@ -109,22 +112,26 @@ Once DNS is configured and propagated:
 ## Common DNS Provider Instructions
 
 ### Cloudflare
+
 1. Go to DNS settings
 2. Add the A/CNAME records as specified above
 3. Set Proxy status to "DNS only" (gray cloud) initially
 4. After verification, you can enable proxy (orange cloud)
 
 ### Namecheap
+
 1. Go to Domain List > Manage > Advanced DNS
 2. Add new records with the values above
 3. Set TTL to Automatic or 1 min for faster testing
 
 ### GoDaddy
+
 1. Go to DNS Management
 2. Add records with the values specified above
 3. Default TTL is fine (600 seconds or 1 hour)
 
 ### Google Domains
+
 1. Go to DNS settings
 2. Add custom resource records
 3. Enter the A/CNAME records as specified
@@ -132,24 +139,28 @@ Once DNS is configured and propagated:
 ## Troubleshooting
 
 ### Domain Not Working
+
 - **Check DNS propagation**: Use dnschecker.org to verify your DNS records
 - **Clear browser cache**: Try in incognito/private mode
 - **Wait longer**: DNS can take up to 48 hours to fully propagate
 - **Verify CNAME file**: Ensure it contains only the domain name, no extra characters
 
 ### HTTPS Not Available
+
 - Wait for DNS to fully propagate first
 - GitHub Pages needs to verify domain ownership before issuing SSL
 - This can take 1-24 hours after DNS propagation
 - Check GitHub Pages settings for any error messages
 
 ### Site Shows 404
+
 - Ensure the CNAME file is in the `public` directory
 - Verify `basePath` is removed or commented out in `next.config.js`
 - Redeploy the site after making changes: `npm run deploy`
 - Check that the `gh-pages` branch has the CNAME file
 
 ### Mixed Content Warnings
+
 - Ensure all resources (images, fonts, scripts) use HTTPS
 - Update any hardcoded HTTP URLs to HTTPS or protocol-relative URLs
 
@@ -165,6 +176,7 @@ If you want to switch back to using `yourusername.github.io/repository-name`:
 ## Example Domain Configurations
 
 ### Example 1: Apex Domain
+
 ```
 Domain: example.com
 CNAME file content: example.com
@@ -173,6 +185,7 @@ GitHub Pages: example.com
 ```
 
 ### Example 2: www Subdomain
+
 ```
 Domain: www.example.com
 CNAME file content: www.example.com
@@ -181,6 +194,7 @@ GitHub Pages: www.example.com
 ```
 
 ### Example 3: Custom Subdomain
+
 ```
 Domain: portfolio.example.com
 CNAME file content: portfolio.example.com
