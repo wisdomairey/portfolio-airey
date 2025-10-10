@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio-airey',
+  // basePath: '/portfolio-airey', // Remove this when using custom domain
   images: {
     unoptimized: true,
     domains: ['robinsonhonour.me'],
