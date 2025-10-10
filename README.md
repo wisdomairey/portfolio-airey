@@ -96,6 +96,58 @@ npm run build
 npm start
 ```
 
+## 🚀 Deployment to GitHub Pages
+
+This project is configured for easy deployment to GitHub Pages.
+
+### Quick Deployment
+
+1. **Push your code to GitHub** (if not already done):
+
+```bash
+git add .
+git commit -m "Ready for deployment"
+git push origin main
+```
+
+2. **Deploy using npm script**:
+
+```bash
+npm run deploy
+```
+
+This will build your site and push it to the `gh-pages` branch automatically.
+
+3. **Configure GitHub Pages**:
+   - Go to your repository on GitHub
+   - Navigate to **Settings** > **Pages**
+   - Under **Source**, select:
+     - Branch: `gh-pages`
+     - Folder: `/ (root)`
+   - Click **Save**
+
+Your site will be live at: `https://wisdomairey.github.io/portfolio-airey/`
+
+### Automatic Deployment with GitHub Actions
+
+The project includes a GitHub Actions workflow that automatically deploys your site when you push to the `main` branch.
+
+**To enable automatic deployment:**
+
+1. Go to your repository **Settings** > **Pages**
+2. Under **Source**, select: **GitHub Actions**
+3. Push any changes to the `main` branch, and GitHub will automatically build and deploy
+
+### Deployment Configuration
+
+The following files configure GitHub Pages deployment:
+
+- **`next.config.js`**: Configured with `output: 'export'` for static export and `basePath: '/portfolio-airey'`
+- **`.github/workflows/deploy.yml`**: GitHub Actions workflow for automatic deployment
+- **`package.json`**: Contains `deploy` script for manual deployment
+
+For detailed deployment instructions and troubleshooting, see [`DEPLOYMENT.md`](./DEPLOYMENT.md).
+
 ## 📦 Dependencies
 
 ### Core Dependencies
@@ -231,6 +283,8 @@ TypeScript compiler options:
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run export` - Export static site
+- `npm run deploy` - Build and deploy to GitHub Pages
 
 ## 🎨 Customization
 
