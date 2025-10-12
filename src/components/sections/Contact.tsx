@@ -14,10 +14,16 @@ export default function Contact() {
     message: '',
   })
 
+  // Simple mailto approach - works immediately without API setup
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )
+    
+    window.location.href = `mailto:wisdomaireguamen@gmail.com?subject=${subject}&body=${body}`
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
