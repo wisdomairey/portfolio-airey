@@ -24,25 +24,31 @@ export default function About() {
           <div className="max-w-3xl mx-auto">
             <div className="space-y-6">
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                I like to craft solid and scalable products with exceptional user
-                experiences, focusing on innovation and problem-solving across
-                various industries.
+                Hi, I&apos;m Wisdom Airey, a Full Stack Developer with a foundation in Electrical and Electronics Engineering and a deep passion for solving real-world problems through code.
               </p>
 
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                I&apos;m Wisdom Airey, a 19-year-old Nigerian software developer,
-                with 7.5+ years of experience in web development, app development,
-                robotics, cloud computing, and game development. I specialize in
-                building robust applications, cloud platforms, and cutting-edge
-                robotics solutions.
+                My journey into tech began in university, during a Visual Basic project. I still remember the excitement of seeing my first lines of code come alive — it felt like unlocking a new superpower. That moment sparked a lifelong curiosity about how software works, and since then, I&apos;ve been driven by one goal: to keep building, learning, and growing into one of the best developers in the world.
               </p>
 
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                A self-taught programmer, ranked among the top programmers in Port
-                Harcourt, Nigeria, I am an active tech content creator, speaker, and
-                mentor passionate about empowering others in tech. I&apos;m also the CEO
-                and founder of Pxxl App, a cloud deployment platform for websites,
-                APIs, and databases.
+                In my final year, I combined my engineering background with programming by creating an accident alert and tracking system using Arduino — blending hardware and software to solve a real problem. That experience taught me how powerful code can be when it meets purpose.
+              </p>
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                Over time, I&apos;ve explored different programming languages and technologies, but my true focus lies in Full Stack Web Development — where creativity meets logic. I enjoy turning ideas into interactive, scalable web experiences using tools like React, Next.js, Node.js, and MongoDB.
+              </p>
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                Beyond coding, I&apos;m passionate about continuous improvement — whether it&apos;s optimizing performance, refining user interfaces, or learning the latest frameworks. I love challenges that push me to think deeper, plan smarter, and build cleaner.
+              </p>
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                When I&apos;m not coding, you&apos;ll probably find me exploring new technologies, reading about design systems, or analyzing how great products are built.
+              </p>
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                In short, I&apos;m an engineer at heart and a creator by choice — someone who believes that with the right mix of logic and creativity, there&apos;s no limit to what we can build.
               </p>
             </div>
           </div>
